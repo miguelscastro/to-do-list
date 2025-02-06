@@ -7,7 +7,7 @@ import { Input } from './components/Input';
 
 import { Header as ListHeader } from './components/List/Header';
 import './global.css';
-// import { Empty } from "./components/List/Empty";
+import { Empty } from "./components/List/Empty";
 import { Task } from "./components/List/Task";
 import { ChangeEvent, useState } from "react";
 
@@ -87,16 +87,21 @@ export function App() {
                         tasksCounter={tasks.length}
                         checkedTasksCounter={checkedTasksCounter}
                     />
-                    {tasks.map(task => {
-                        return (
-                            <Task
-                                key={task.id}
-                                data={task}
-                                removeTask={handleRemoveTask}
-                                toogleTask={handleToogleTask}
-                            />
-                        )
-                    })}
+                    {tasks.length > 0 ?
+                        tasks.map(task => {
+                            return (
+                                <Task
+                                    key={task.id}
+                                    data={task}
+                                    removeTask={handleRemoveTask}
+                                    toogleTask={handleToogleTask}
+                                />
+                            )
+                        })
+                        :
+                        <Empty />
+                    }
+
                 </div>
             </section>
         </main>
