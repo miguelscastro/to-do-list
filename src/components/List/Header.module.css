@@ -1,0 +1,37 @@
+.tasksListStatus {
+    display: flex;
+    flex: 1;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasksListStatus aside {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-weight: bold;
+}
+
+.tasksListStatus aside:first-child p {
+    color: var(--blue);
+}
+
+.tasksListStatus aside:last-child p {
+    color: var(--purple);
+}
+
+.tasksListStatus aside p {
+    font-size: 0.875rem;
+}
+
+.tasksListStatus aside span {
+    background: var(--gray-400);
+    color: var(--gray-200);
+
+    padding: 2px 8px;
+    border-radius: 16px;
+
+    font-size: 0.75rem;
+}
