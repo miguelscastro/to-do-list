@@ -94,4 +94,5 @@
 .container button:hover {
     background: var(--gray-400);
     color: var(--danger);
+    cursor: pointer;
 }
