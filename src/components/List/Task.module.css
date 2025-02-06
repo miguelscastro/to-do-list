@@ -2,8 +2,7 @@
     display: flex;
     flex: 1;
     gap: 0.75rem;
-
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 
     padding: 1rem;
@@ -21,7 +20,7 @@
 .container label {
     display: flex;
     padding: 3px;
-    align-items: center;
+    align-items: flex-start;
 
     padding: 3px;
     gap: 0.75rem;
@@ -41,6 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .checkboxUnchecked {
@@ -73,6 +73,9 @@
     user-select: none;
 
     transition: 0.2s all;
+
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .paragraphChecked {
