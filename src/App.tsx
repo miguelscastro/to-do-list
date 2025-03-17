@@ -9,7 +9,7 @@ import { Header as ListHeader } from './components/List/Header';
 import './global.css';
 import { Empty } from "./components/List/Empty";
 import { Task } from "./components/List/Task";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 export interface ITask {
     id: number;
@@ -19,7 +19,10 @@ export interface ITask {
 
 export function App() {
 
-    const [tasks, setTasks] = useState<ITask[]>([]);
+    const [tasks, setTasks] = useState<ITask[]>(() => {
+        const data = localStorage.getItem('@to-do-list:tasks-state-1.0.0');
+        return data ? JSON.parse(data) : [];
+      });
     const [inputValue, setInputValue] = useState("");
 
     function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
@@ -67,6 +70,12 @@ export function App() {
         }
         return value
     }, 0)
+
+    useEffect(() => {
+        const stateJSON = JSON.stringify(tasks)
+    
+        localStorage.setItem('@to-do-list:tasks-state-1.0.0', stateJSON)
+      }, [tasks])
 
     return (
         <main>
